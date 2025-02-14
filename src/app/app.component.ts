@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'blueBaro';
   showNavbar = true;
-
+  showNavbar1 = true;
   constructor(private router: Router) {
     this.router.events.subscribe(() => {
       this.showNavbar = this.router.url !== '/login';
