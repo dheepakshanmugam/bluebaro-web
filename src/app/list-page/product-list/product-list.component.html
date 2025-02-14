@@ -1,0 +1,19 @@
+<div class="productView row">
+    <!-- Product Image Section -->
+    <div class="card-body borderimg col-lg-8">
+      <img *ngIf="data.image && !isEmpty(data.image)" [src]="data.image" alt="Product Image" class="productImg object-fit-contain">
+      <img *ngIf="!data.image || isEmpty(data.image)" src="../../assets/blind.jpg" alt="Placeholder Image" class="productImg object-fit-contain">
+    </div>
+    <div class="detail col-lg-4">
+      <h3 data-toggle="tooltip" title="{{data.description}}">{{data?.description?.length > 200 ? (data.description | slice:0:200) + '...' : data?.description}}</h3>
+      <h3>{{ '₹' + data.price }}</h3>
+      
+      <!-- Quantity Input Controls -->
+      <div class="qty-input">
+        <button class="qty-count qty-count--minus" data-action="minus" type="button" (click)="decreaseQty()">-</button>
+        <input class="product-qty" type="number" name="product-qty" min="1" max="10" [value]="productQty" [readonly]="true">
+        <button class="qty-count qty-count--add" data-action="add" type="button" (click)="increaseQty()">+</button>
+      </div>
+      <button type="button" class="btn cartbtn btn-lg" (click)="addToCart(data)">Add to Cart</button>
+    </div>
+  </div>

@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* Add application styles & imports to this file! */
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+@import '~simple-keyboard/build/css/index.css';
+:host {
+    display: block;
+    background-image: url('../../assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+  }
+
+.auth-card {
+  background: #c31432;
+  background: -webkit-linear-gradient(to right, #240b36, #290f13);
+  background: #cbb385;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #90713c;
+}
+
+
+.user-image {
+  height: 70px;
+}
+
+.auth-avatar {
+  
+  text-align: center;
+}
+
+.auth {
+  border: none;
+  border-radius: 6px;
+}
+
+.btn-my {
+  background-color:#cbb385;
+  border-color: #2d2a31;
+  color: #000000;
+}
+
+  

@@ -1,0 +1,29 @@
+<mat-toolbar class="top-toolbar" *ngIf="showNavbar">
+    <mat-toolbar-row class="color">
+      <a mat-button routerLink="/app/dashboard" routerLinkActive="active-link">
+        <mat-icon>dashboard</mat-icon>
+        Home
+      </a>
+      <a mat-button routerLink="/app/users" routerLinkActive="active-link">
+        <mat-icon>group</mat-icon>
+        Shop
+      </a>
+      <a mat-button routerLink="/app/products" routerLinkActive="active-link">
+        <mat-icon>question_answer</mat-icon>
+        Products
+      </a>
+      <span class="spacer"></span>
+      <a mat-button>
+        <mat-icon>shopping_cart</mat-icon>
+      </a>
+      <button mat-button [matMenuTriggerFor]="usersMenu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #usersMenu="matMenu">
+        <button mat-menu-item routerLink="/app/users/list" class="color" (click)="addProduct()">Add Product</button>
+        <button mat-menu-item routerLink="/app/users/list" class="color" (click)="logOff()">Log out</button>
+      </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <router-outlet></router-outlet>

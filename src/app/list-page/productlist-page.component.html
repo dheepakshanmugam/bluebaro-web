@@ -1,0 +1,56 @@
+<!-- <mat-toolbar class="top-toolbar">
+  <mat-toolbar-row class="color">
+    <a mat-button routerLink="/app/dashboard" routerLinkActive="active-link">
+      <mat-icon>dashboard</mat-icon>
+      Home
+    </a>
+    <a mat-button routerLink="/app/users" routerLinkActive="active-link">
+      <mat-icon>group</mat-icon>
+      Shop
+    </a>
+    <a mat-button routerLink="/app/dashboard" routerLinkActive="active-link">
+      <mat-icon>question_answer</mat-icon>
+      Products
+    </a>
+    <span class="spacer"></span>
+    <a mat-button>
+      <mat-icon>shopping_cart</mat-icon>
+    </a>
+    <button mat-button [matMenuTriggerFor]="usersMenu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #usersMenu="matMenu">
+      <button mat-menu-item routerLink="/app/users/list" class="color" (click)="addProduct()">Add Product</button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar> -->
+
+<main>
+  <div>
+    <img src="../../assets/list image.jpg" class="img-fluid">
+  </div>
+</main>
+<div class="row">
+<div *ngFor="let data of myObject;let i = index;" class="col-4">
+  <div class="row mat-card_summary">
+    <div class="col">
+      <div class="card" style="height: 450px;">
+        <div (click)="viewData(data)" style="cursor: pointer;">
+        <img *ngIf="data.data == 'DEFAULT'" [src]="data.image" class="card-img-top" alt="...">
+        <img *ngIf="data.data == 'OPTION' &&  imageUrl && imageUrl[i] && !imageBoolean"  [src]="imageUrl[i]" class="card-img-top" alt="...">
+        <img *ngIf="data.data == 'OPTION' &&  !!imageBoolean"  src="../../assets/list image.jpg" class="card-img-top" alt="...">
+        <img *ngIf="data.data == 'DEFAULT' &&  data.image == ''"  src="../../assets/list image.jpg" class="card-img-top" alt="...">
+      
+        <div class="card-body" >
+          <h5 class="card-title">{{data.name}}</h5>
+          <p class="card-text" data-toggle="tooltip" title="{{data.description}}">{{data?.description?.length > 100 ? (data.description | slice:0:100) + '...' : data?.description}}</p>
+          <h1 class="card-title">{{'&#8377;' + data.price}} <span><mat-icon class="icon"  (click)="delete(i)">delete</mat-icon><mat-icon  class="icon" (click)="editIcon(data)">edit</mat-icon></span></h1>
+        </div>
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>

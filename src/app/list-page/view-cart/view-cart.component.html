@@ -1,0 +1,50 @@
+<div class="cartwth">
+<div class="proPrice col-lg-8">
+<div class="proDetail ">
+    <div>
+        <img *ngIf="data.image && !isEmpty(data.image)" [src]="data.image" alt="Product Image" class="cartDetImg">
+        <img *ngIf="!data.image || isEmpty(data.image)" src="../../assets/blind.jpg" alt="Placeholder Image" class="cartDetImg">
+</div>
+<div class="prodescr">
+<h2 data-toggle="tooltip" title="{{data.description}}">{{data?.description?.length > 200 ? (data.description | slice:0:200) + '...' : data?.description}}</h2>
+<h3>{{'₹' + data.price}}</h3>
+<div class="qty-input">
+    <button class="qty-count qty-count--minus" data-action="minus" type="button" (click)="decreaseQty()">-</button>
+    <input class="product-qty" type="number" name="product-qty" min="1" max="10" [value]="productQty" [readonly]="true">
+    <button class="qty-count qty-count--add" data-action="add" type="button" (click)="increaseQty()">+</button>
+  </div>
+ 
+</div>
+</div>
+</div>
+<div class="col-lg-4 priceTot">
+
+<table class="table table-borderless priceTab">
+    <tbody>
+      <tr>
+       
+        <td>Price</td>
+        <td>{{'₹' + formatNumber(price)}}</td>
+      </tr>
+      <tr>
+        <td>Shipping Charges</td>
+        <td>{{'₹' + formatNumber(shippingCharges)}}</td>
+      </tr>
+      <tr class="table-group-divider">
+        <td>Total Price</td>
+        <td>{{'₹'+formatNumber(amount)}}</td>
+      </tr>
+    </tbody>
+    
+  
+  </table>
+  <button  *ngIf="!isOrderPlaced" type="button" class="btn cartbtn btn-lg" (click)="addToCart(data)" >Place Order</button>
+  <div *ngIf="isOrderPlaced" class="order-confirmation">
+    <p>Order Placed Successfully!</p>
+  </div>
+  
+</div>
+
+    </div>
+    <a class="shopBtn" (click)="continueShop(data)" >Continue Shopping</a>
+

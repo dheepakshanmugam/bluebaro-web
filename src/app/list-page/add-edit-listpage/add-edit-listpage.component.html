@@ -1,0 +1,20 @@
+<div  [formGroup]="packageForm">
+<div class="mb-3">
+    <label class="form-label">Name<span class="text-danger">*</span></label>
+    <input type="text" class="form-control" id="" placeholder="Enter Name" formControlName="name">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Price<span class="text-danger">*</span></label>
+    <input type="number" class="form-control" id="" placeholder="Enter Price" formControlName="price">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Image<span class="text-danger">*</span></label>
+    <input type="file" class="form-control" id="" placeholder="Add Image" formControlName="image" (change)="addFile($event)"  accept="image/jpeg,image/png,image/gif,image/bmp,image/tiff,image/webp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Description<span class="text-danger">*</span></label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter Description" formControlName="description"></textarea>
+  </div>
+  <button class="primary" (click)="savePackage()">Save</button>
+  <button class="primary btn" (click)="backBtn()">Cancel</button>
+</div>
